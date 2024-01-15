@@ -1,2 +1,11 @@
-package ru.ilynoiz.tacocloud;public class Taco {
+package ru.ilynoiz.tacocloud;
+
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+public class Taco {
+    private String name;
+    private List<Ingredient> ingredients;
 }
