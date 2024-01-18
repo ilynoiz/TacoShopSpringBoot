@@ -8,15 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import ru.ilynoiz.tacocloud.Ingredient;
-import ru.ilynoiz.tacocloud.Ingredient.Type;
-import ru.ilynoiz.tacocloud.Taco;
-import ru.ilynoiz.tacocloud.TacoOrder;
+import ru.ilynoiz.tacocloud.tacos.Ingredient;
+import ru.ilynoiz.tacocloud.tacos.Ingredient.Type;
+import ru.ilynoiz.tacocloud.tacos.Taco;
+import ru.ilynoiz.tacocloud.tacos.TacoOrder;
 import ru.ilynoiz.tacocloud.repositories.IngredientRepository;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 

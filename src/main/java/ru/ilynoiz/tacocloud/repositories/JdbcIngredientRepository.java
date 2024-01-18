@@ -3,7 +3,7 @@ package ru.ilynoiz.tacocloud.repositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import ru.ilynoiz.tacocloud.Ingredient;
+import ru.ilynoiz.tacocloud.tacos.Ingredient;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

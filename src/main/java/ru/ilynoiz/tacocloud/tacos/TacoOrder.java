@@ -1,4 +1,4 @@
-package ru.ilynoiz.tacocloud;
+package ru.ilynoiz.tacocloud.tacos;
 
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;

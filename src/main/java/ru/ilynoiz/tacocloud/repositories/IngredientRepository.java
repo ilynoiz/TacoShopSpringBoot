@@ -1,6 +1,6 @@
 package ru.ilynoiz.tacocloud.repositories;
 
-import ru.ilynoiz.tacocloud.Ingredient;
+import ru.ilynoiz.tacocloud.tacos.Ingredient;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package ru.ilynoiz.tacocloud;
+package ru.ilynoiz.tacocloud.tacos;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
