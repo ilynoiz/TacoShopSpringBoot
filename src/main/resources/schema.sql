@@ -18,6 +18,7 @@ create table if not exists Taco (
     taco_order_key bigint not null,
     created_at timestamp not null
     );
+
 create table if not exists Ingredient_Ref (
     ingredient varchar(4) not null,
     taco bigint not null,
