@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -25,13 +26,14 @@ public class Taco {
     @Size(min = 5, message="Name must be at least 5 characters long")
     private String name;
 
-    private Date createdAt = new Date();
+    private Date createdAt;
 
     @Size(min = 1, message="You must choose at least 1 ingredient")
     @ManyToMany
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    public void addIngredient(Ingredient ingredient) {
-        this.ingredients.add(ingredient);
+    @PrePersist
+    void createdAt() {
+        this.createdAt = new Date();
     }
 }

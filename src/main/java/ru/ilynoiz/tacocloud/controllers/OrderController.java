@@ -23,7 +23,7 @@ public class OrderController {
 
     @GetMapping("/current")
     public String orderForm(@AuthenticationPrincipal User user, @ModelAttribute TacoOrder order) {
-        if (order.getDeliveryName() == null) {
+        /*if (order.getDeliveryName() == null) {
             order.setDeliveryName(user.getFullname());
         }
         if (order.getDeliveryStreet() == null) {
@@ -37,7 +37,7 @@ public class OrderController {
         }
         if (order.getDeliveryZip() == null) {
             order.setDeliveryZip(user.getZip());
-        }
+        }*/
 
         return "orderForm";
     }

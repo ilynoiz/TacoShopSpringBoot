@@ -11,11 +11,15 @@
         <h1>Design your taco!</h1>
         <img th:src="@{/images/TacoCloud.png}"/>
 
+        <div th:if="${error}">
+            DESIGN, SOME FUCKING SHIT HAPPEND!
+        </div>
+
         <form method="POST" th:action="@{/logout}">
             <input type="submit" value="Logout"/>
         </form>
 
-        <form method="POST" th:object="${taco}">
+        <form method="POST" th:object="${taco}" th:action="@{/design}" id="tacoForm">
             <div class="grid">
                 <div class="ingredient-group" id="wraps"> <h3>Designate your wrap:</h3>
                     <div th:each="ingredient : ${wrap}">

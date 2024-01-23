@@ -6,6 +6,11 @@
         <link rel="stylesheet" th:href="@{/styles.css}" />
     </head>
     <body>
+
+        <div th:if="${error}">
+            ORDER, SOME FUCKING SHIT HAPPEND!
+        </div>
+
         <form method="POST" th:action="@{/logout}">
             <input type="submit" value="Logout"/>
         </form>

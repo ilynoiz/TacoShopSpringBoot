@@ -1,6 +1,5 @@
 package ru.ilynoiz.tacocloud.controllers;
 
-import com.google.common.collect.Lists;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +17,16 @@ import ru.ilynoiz.tacocloud.tacos.TacoOrder;
 import ru.ilynoiz.tacocloud.data.IngredientRepository;
 
 import java.security.Principal;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 /**
  * TODO
  */
-@Slf4j  //Adding logger (Simple logging facade for java)
 @Controller
 @RequestMapping("/design")
 @SessionAttributes("tacoOrder")     //TacoOrder must be handled on the session level.
+@Slf4j  //Adding logger (Simple logging facade for java)
 public class DesignTacoController {
 
     private final IngredientRepository ingredientRepo;
@@ -80,15 +78,18 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processTaco(@Valid Taco taco, Errors errors, @ModelAttribute TacoOrder tacoOrder) {
+    public String processTaco(@Valid Taco taco, Errors errors, @ModelAttribute TacoOrder order) {
 
         log.info("   --- Saving taco");
 
         if (errors.hasErrors()) {
-            return "design";
+            errors.getAllErrors().forEach(err -> log.error(err.toString()));
+            throw new RuntimeException("Fucking shit, its design!");
+
+            //return "design";
         }
         Taco saved = tacoRepo.save(taco);
-        tacoOrder.addTaco(saved);
+        order.addTaco(saved);
         log.info("Processing taco: {}", taco);
 
         return "redirect:/orders/current";

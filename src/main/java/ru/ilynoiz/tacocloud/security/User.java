@@ -1,9 +1,6 @@
 package ru.ilynoiz.tacocloud.security;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +16,7 @@ import java.util.Collection;
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @RequiredArgsConstructor
+@Table(name = "TACO_USER")
 public class User implements UserDetails {
 
     private static final Long serialVersionUID = 1L;

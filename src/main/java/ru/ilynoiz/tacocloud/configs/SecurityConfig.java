@@ -1,10 +1,7 @@
 package ru.ilynoiz.tacocloud.configs;
 
-import org.apache.catalina.servlets.WebdavServlet;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -40,7 +37,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/design", "/orders").hasRole("USER")
                         .anyRequest().permitAll())
-                .formLogin((auth) -> auth
+                .formLogin((login) -> login
                         .loginPage("/login")
                         .defaultSuccessUrl("/design", true))
                 .logout((logout) -> logout.logoutSuccessUrl("/login"));
