@@ -3,19 +3,20 @@ package ru.ilynoiz.tacocloud.tacos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-import ru.ilynoiz.tacocloud.repositories.IngredientRepository;
+import ru.ilynoiz.tacocloud.data.IngredientRepository;
+
 
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
 
-    private IngredientRepository ingredientRepository;
+    private IngredientRepository ingredientRepo;
     @Autowired
-    public IngredientByIdConverter(IngredientRepository ingredientRepository) {
-        this.ingredientRepository = ingredientRepository;
+    public IngredientByIdConverter(IngredientRepository ingredientRepo) {
+        this.ingredientRepo = ingredientRepo;
     }
 
     @Override
     public Ingredient convert(String id) {
-        return ingredientRepository.findById(id).orElse(null);
+        return ingredientRepo.findById(id).orElse(null);
     }
 }
