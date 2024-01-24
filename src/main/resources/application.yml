@@ -1,7 +1,37 @@
 spring:
+  application:
+    name: TacoCloud
   thymeleaf:
     cache: false
   datasource:
     generate-unique-name: false
     name: tacocloud
     #url: jdbc:h2:mem:tacocloud;NON_KEYWORDS=USER
+logging:
+  level:
+    tacos: DEBUG
+  file:
+    path: /logs/
+    name: TacoCloud.log
+greeting:
+  welcome: You are using ${spring.application.name}.
+taco:
+  orders:
+    pageSize: 10
+
+---
+spring:
+  profiles: prod
+  application:
+    name: TacoCloud
+  thymeleaf:
+    cache: false
+  datasource:
+    generate-unique-name: false
+    name: tacocloud
+logging:
+  file:
+    path: /logs/
+    name: TacoCloud.log
+  level:
+    tacos: WARN
